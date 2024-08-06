@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.example.movie_feed.data.MoviePhotoRepository
 import com.example.movie_feed.model.MoviePhoto
 
 /**
@@ -16,7 +17,7 @@ sealed interface MovieUiState{
     object Loading: MovieUiState
 }
 
-class MovieViewModel(): ViewModel{
+class MovieViewModel(private val MoviePhotoRepository: MoviePhotoRepository): ViewModel(){
     var movieUiState: MovieUiState by mutableStateOf(MovieUiState.Loading)
         private set
 
