@@ -11,12 +11,12 @@ interface MovieApiServise{
     @GET("photo")
     suspend fun getPhotos(
         @Path("movie_id") movieId: Int,
-        @Query("api_key") apiKey: String
+        @Query("api_key") apiKey: String = ""
     ):List<MoviePhoto>
 
     @GET("movie/{movie_id}")
     suspend fun getMovieDetails(
         @Path("movie_id") movieId: Int,
-        @Query("api_key") apiKey: String
+        @Query("api_key") apiKey: String = ""
     ): List<MoviePhoto>
 }

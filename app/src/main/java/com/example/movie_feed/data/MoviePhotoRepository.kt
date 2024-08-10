@@ -4,11 +4,12 @@ import com.example.movie_feed.model.MoviePhoto
 import com.example.movie_feed.network.MovieApiServise
 
 interface MoviePhotoRepository{
-    suspend fun getMoviePhoto(): List<MoviePhoto>
+    suspend fun getMoviePhoto(movieId :Int): List<MoviePhoto>
 }
 
 class NetworkMovieRepository(
     private val movieApiServise: MovieApiServise
 ): MoviePhotoRepository{
-    override suspend fun getMoviePhoto(): List<MoviePhoto> =movieApiServise.getPhotos()
+    private val apiKey = ""
+    override suspend fun getMoviePhoto(movieId : Int): List<MoviePhoto> = movieApiServise.getPhotos(movieId)
 }

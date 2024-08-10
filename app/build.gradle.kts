@@ -4,10 +4,20 @@ plugins {
 
     id("org.jetbrains.kotlin.plugin.serialization") version "2.0.0"
 }
-
+//def getAPI_KEy() {
+//
+//    Properties properties = new Properties()
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//    return properties.getProperty("API_KEY")
+//}
+def credentials = rootProject.file("local.properties")
+def credentialProperty = new Properties()
+credentialProperty.load(new FileInputStream(credentials))
 android {
     namespace = "com.example.movie_feed"
     compileSdk = 34
+
+    
 
     defaultConfig {
         applicationId = "com.example.movie_feed"
@@ -17,6 +27,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "TMDB_API_KEY", credentialProperty['TMDB_API_KEY'])
         vectorDrawables {
             useSupportLibrary = true
         }

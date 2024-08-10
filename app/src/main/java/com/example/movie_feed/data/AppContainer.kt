@@ -10,8 +10,7 @@ interface AppContainer{
     val moviePhotoRepository: MoviePhotoRepository
 }
 class DefaultAppContainer: AppContainer{
-    private val baseUrl = ""
-    private val apiKey = "dd6acb10c15a4e93ec1e0ccb9f6bcaed"
+    private val baseUrl = "https://api.themoviedb.org/3/movie/movie_id?language=en-US"
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
@@ -24,8 +23,5 @@ class DefaultAppContainer: AppContainer{
 
     override val moviePhotoRepository: MoviePhotoRepository by lazy {
         NetworkMovieRepository(retrofitService)
-    }
-    fun getApiKey(): String {
-        return apiKey
     }
 }
