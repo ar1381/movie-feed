@@ -10,9 +10,9 @@ plugins {
 //    properties.load(project.rootProject.file('local.properties').newDataInputStream())
 //    return properties.getProperty("API_KEY")
 //}
-def credentials = rootProject.file("local.properties")
-def credentialProperty = new Properties()
-credentialProperty.load(new FileInputStream(credentials))
+//def credentials = rootProject.file("local.properties")
+//def credentialProperty = new Properties()
+//credentialProperty.load(new FileInputStream(credentials))
 android {
     namespace = "com.example.movie_feed"
     compileSdk = 34
@@ -27,7 +27,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "TMDB_API_KEY", credentialProperty['TMDB_API_KEY'])
+//        buildConfigField("String", "TMDB_API_KEY", credentialProperty['TMDB_API_KEY'])
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -78,6 +78,11 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.coil.compose)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.paging.common.android)
+
+
+    //Hilt
 
 
     testImplementation(libs.junit)
