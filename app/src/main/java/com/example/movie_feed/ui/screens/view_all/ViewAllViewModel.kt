@@ -7,9 +7,11 @@ import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import androidx.paging.PagingData
+import com.example.movie_feed.data.MovieItem
 import com.example.movie_feed.model.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 
+@HiltViewModel
 class ViewAllViewModel @Inject constructor(useCases: UseCases) :
     ViewModel() {
 

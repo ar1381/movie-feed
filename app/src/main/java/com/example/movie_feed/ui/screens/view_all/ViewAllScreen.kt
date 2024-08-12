@@ -17,15 +17,18 @@ import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.example.movie_feed.data.MovieItem
 import com.example.movie_feed.model.MovieTypes
 import com.example.movie_feed.ui.screens.components.MovieCard
+import com.example.movie_feed.ui.screens.view_all.tools.PaginationProg
 import com.example.movie_feed.ui.screens.view_all.tools.ToolBar
+import com.example.movie_feed.ui.screens.view_all.tools.handlePagingResult
 
 @Composable
 fun ViewAllScreen(
     navController: NavController,
     moviesType: String,
-//    viewModel: ViewAllViewModel = hiltViewModel()
+    viewModel: ViewAllViewModel = hiltViewModel()
 ) {
     Scaffold(topBar = {
         ToolBar(title = moviesType, onBack = {
@@ -53,7 +56,7 @@ fun ViewAllScreen(
                 }
             })
             if (movieItems.loadState.append == LoadState.Loading)
-                PaginationProgress()
+                PaginationProg()
             else {
                 handlePagingResult(movieItems)
             }
@@ -68,7 +71,7 @@ fun selectList(moviesType: String, viewModel: ViewAllViewModel): LazyPagingItems
         //TODO
         //other movie types
         else -> {
-//            viewModel.topRatedMoviesPagingItems.collectAsLazyPagingItems()
+            viewModel.topRatedMoviesPagingItems.collectAsLazyPagingItems()
         }
     }
 }

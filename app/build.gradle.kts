@@ -80,9 +80,19 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.paging.common.android)
-
+    implementation("com.squareup.retrofit2:converter-gson:2.6.0")
 
     //Hilt
+    implementation("com.google.dagger:hilt-android:2.44")
+    implementation("com.google.dagger:hilt-compiler:2.44")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    //paging
+    implementation("androidx.paging:paging-compose:1.0.0-alpha14")
+    implementation("androidx.fragment:fragment-ktx:1.5.5")
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:11.0.1")
+
+
 
 
     testImplementation(libs.junit)

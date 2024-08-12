@@ -23,9 +23,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
+import com.example.movie_feed.data.MovieItem
 
 @Composable
-fun MovieCard( modifier: Modifier, navController: NavController) {
+fun MovieCard(item: MovieItem?, modifier: Modifier, navController: NavController) {
     Card(
         modifier = Modifier
             .padding(10.dp)
