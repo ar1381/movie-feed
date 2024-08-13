@@ -72,6 +72,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation("androidx.compose.material:material:1.3.0")
 
     //retrofit
     implementation(libs.retrofit2.kotlinx.serialization.converter)

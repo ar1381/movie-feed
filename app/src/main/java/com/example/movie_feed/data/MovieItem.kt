@@ -46,7 +46,7 @@ data class MovieItem(
     val voteCount: Int? = null
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-//TODO
+
     ) {
     }
 
