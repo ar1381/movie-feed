@@ -37,7 +37,7 @@ class MovieViewModel(private val moviePhotoRepository: MoviePhotoRepository) : V
         viewModelScope.launch {
             try {
 //                val movieDetails: MoviePhoto = moviePhotoRepository.getMoviePhoto(movieId)
-                // Handle the movie details
+//                 Handle the movie details
             } catch (e: Exception) {
                 // Handle the error
             }
