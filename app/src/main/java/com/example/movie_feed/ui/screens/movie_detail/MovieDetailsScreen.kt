@@ -8,8 +8,13 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -28,6 +33,8 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.movie_feed.R
+import com.example.movie_feed.data.database.MovieDatabase
+import com.example.movie_feed.data.database.MovieEntity
 import com.example.movie_feed.model.tools.formattedYear
 import com.example.movie_feed.model.tools.minuteToTime
 import com.example.movie_feed.model.use_case.GetVideosResponse
@@ -45,6 +52,9 @@ import java.util.*
 fun MovieDetailsScreen(
     navController: NavController, title: String, viewModel: MovieDetailsViewModel = hiltViewModel()
 ) {
+    val context = LocalContext.current
+//    val movieDao = MovieDatabase.getDatabase(context).movieDao()
+    val bookmarked = remember { mutableStateOf(false) }
     Scaffold(topBar = {
         ToolBar(title = title, onBack = {
             navController.popBackStack()
@@ -61,7 +71,17 @@ fun MovieDetailsScreen(
             if (details.id != null && cast.id != null) {
                 LazyColumn(content = {
                     item { ItemPoster(details) }
-                    item { ItemTitle(navController,details, videos) }
+                    item { ItemTitle(navController,details, videos, bookmarked, onBookmarkClick = {
+                        viewModel.bookmarkMovie(
+                            MovieEntity(
+                                id = details.id,
+                                title = details.title.toString(),
+                                bookmarked = !bookmarked.value
+                            )
+                        )
+                        bookmarked.value = !bookmarked.value
+                    }
+                    ) }
                     item { ItemOverview(details) }
                     item { ItemCast(cast) }
                 })
@@ -70,6 +90,7 @@ fun MovieDetailsScreen(
             ErrorView(viewModel.apiError.value)
         }
     }
+
 }
 
 
@@ -104,7 +125,8 @@ fun ItemPoster(response: MovieDetailsResponse) {
 }
 
 @Composable
-fun ItemTitle( navController: NavController,response: MovieDetailsResponse, videos: GetVideosResponse) {
+fun ItemTitle(navController: NavController, response: MovieDetailsResponse, videos: GetVideosResponse, bookmarked: MutableState<Boolean>,
+              onBookmarkClick: () -> Unit) {
 
     Spacer(modifier = Modifier.height(20.dp))
 
@@ -151,6 +173,14 @@ fun ItemTitle( navController: NavController,response: MovieDetailsResponse, vide
             style = MaterialTheme.typography.body1,
             maxLines = 1,
             modifier = Modifier.padding(end = 10.dp)
+        )
+        Icon(
+            imageVector = if (bookmarked.value) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+            contentDescription = stringResource(id = R.string.description),
+            tint = Color.Black,
+            modifier = Modifier
+                .size(18.dp)
+                .clickable(onClick = onBookmarkClick)
         )
     }
 

@@ -12,17 +12,24 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateMapOf
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.example.movie_feed.data.database.MovieEntity
+import com.example.movie_feed.data.database.RepositoryData
 import com.example.movie_feed.model.Constants
 import com.example.movie_feed.model.use_case.GetVideosResponse
 import com.example.movie_feed.model.use_case.MovieCreditsResponse
 import com.example.movie_feed.network.NetworkResult
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 
 @HiltViewModel
 class MovieDetailsViewModel @Inject constructor(
-    useCases: UseCases, savedStateHandle: SavedStateHandle
+    useCases: UseCases, savedStateHandle: SavedStateHandle, private val repositoryData: RepositoryData
 ) :
     ViewModel() {
+
 
     private val _movieDetailsResponse: MutableState<MovieDetailsResponse> =
         mutableStateOf(MovieDetailsResponse())
@@ -47,6 +54,8 @@ class MovieDetailsViewModel @Inject constructor(
       savedStateHandle.get<String>("movieId")?.let { movieId ->
             if (movieId.isNotEmpty()) {
                 viewModelScope.launch {
+
+
                     useCases.movieDetails.invoke(Constants.LANG, movieId).collect {
                         when (it) {
 
@@ -119,6 +128,21 @@ class MovieDetailsViewModel @Inject constructor(
 
             }
         }
+    }
+    fun bookmarkMovie(movieEntity: MovieEntity) {
+        viewModelScope.launch {
+            repositoryData.insertMovie(movieEntity)
+        }
+    }
+
+    fun unbookmarkMovie(movieEntity: MovieEntity) {
+        viewModelScope.launch {
+            repositoryData.updateMovie(movieEntity)
+        }
+    }
+
+    fun getBookmarkedMovies(): LiveData<List<MovieEntity>> {
+        return repositoryData.bookmarkedMovies
     }
 
     private fun initMapValues() {
