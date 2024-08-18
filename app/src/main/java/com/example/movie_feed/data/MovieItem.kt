@@ -46,14 +46,37 @@ data class MovieItem(
     val voteCount: Int? = null
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readValue(Boolean::class.java.classLoader) as? Boolean,
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readValue(Double::class.java.classLoader) as? Double,
+        parcel.readValue(Double::class.java.classLoader) as? Double,
+        parcel.readValue(Boolean::class.java.classLoader) as? Boolean,
+        parcel.readValue(Int::class.java.classLoader) as? Int
     ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-//TODO
+        parcel.writeString(overview)
+        parcel.writeString(movieId)
+        parcel.writeString(originalLanguage)
+        parcel.writeString(originalTitle)
+        parcel.writeValue(video)
+        parcel.writeString(title)
+        parcel.writeString(posterPath)
+        parcel.writeString(backdropPath)
+        parcel.writeString(releaseDate)
+        parcel.writeValue(popularity)
+        parcel.writeValue(voteAverage)
+        parcel.writeValue(adult)
+        parcel.writeValue(voteCount)
     }
-
     override fun describeContents(): Int {
         return 0
     }

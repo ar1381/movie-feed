@@ -5,8 +5,8 @@ import com.example.movie_feed.data.MovieFeedRepository
 import com.example.movie_feed.data.MovieItem
 import javax.inject.Inject
 
-class UpcomingMoviesPagingList @Inject constructor(private val MovieRepository: MovieFeedRepository) {
+class UpcomingMoviesPagingList @Inject constructor(private val movieRepository: MovieFeedRepository) {
     suspend operator fun invoke(lang: String) :kotlinx.coroutines.flow.Flow<PagingData<MovieItem>> {
-        return MovieRepository.upcomingPagingList(lang)
+        return movieRepository.upcomingPagingList(lang)
     }
 }

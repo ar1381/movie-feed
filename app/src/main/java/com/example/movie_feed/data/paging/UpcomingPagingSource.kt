@@ -22,8 +22,6 @@ class UpcomingPagingSource(private val apiService: MovieApiService, private val 
             val nextKey = if (data.results?.isEmpty() == true) {
                 null
             } else {
-                // initial load size = 3 * NETWORK_PAGE_SIZE
-                // ensure we're not requesting duplicating items, at the 2nd request
                 position + (params.loadSize / NETWORK_PAGE_SIZE)
             }
             val prevKey = if (position == STARTING_PAGE_INDEX) null else position - 1

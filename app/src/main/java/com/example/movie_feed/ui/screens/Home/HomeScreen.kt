@@ -29,6 +29,8 @@ import com.example.movie_feed.ui.screens.Home.tools.TopBar
 import com.example.movie_feed.ui.screens.components.MovieCard
 import com.example.movie_feed.ui.screens.components.Screen
 import com.example.movie_feed.R
+import com.example.movie_feed.ui.screens.view_all.tools.ErrorView
+import com.example.movie_feed.ui.screens.view_all.tools.IsLoading
 
 
 @Composable
@@ -75,7 +77,8 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = hiltView
                     TopRatedList(viewModel = viewModel, navController = navController)
                 }
             }
-            //TODO error and is loading
+            IsLoading(isLoading = viewModel.isLoading.containsValue(true))
+            ErrorView(viewModel.apiError.value)
         }
     }
 }
