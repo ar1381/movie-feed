@@ -1,7 +1,6 @@
 package com.example.movie_feed.model.use_case
 
 import com.example.movie_feed.data.MovieFeedRepository
-import com.example.movie_feed.data.MoviePhotoRepository
 import com.example.movie_feed.data.TopRatedMovieResponse
 import com.example.movie_feed.network.NetworkResult
 import javax.inject.Inject

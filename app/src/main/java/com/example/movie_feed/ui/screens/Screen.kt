@@ -1,8 +1,9 @@
-package com.example.movie_feed.ui.screens.components
+package com.example.movie_feed.ui.screens
 
 sealed class Screen(val route:String){
     object Dashboard: Screen("dashboard_screen")
     object ViewAll: Screen("view_all_screen")
     object MovieDetailsScreen: Screen("movie_details_screen")
+    object YoutubePlayerScreen: Screen("youtube_player_screen")
     object SearchPageScreen: Screen("search_page_screen")
-}
+ }

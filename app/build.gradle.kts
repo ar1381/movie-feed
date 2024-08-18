@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
 
     id("org.jetbrains.kotlin.plugin.serialization") version "2.0.0"
+    id("com.google.dagger.hilt.android") version "2.50"
+    id("kotlin-kapt")
 }
 //def getAPI_KEy() {
 //
@@ -57,9 +59,10 @@ android {
     }
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/gradle/incremental.annotation.processors"
         }
     }
+
 }
 
 dependencies {
@@ -82,16 +85,29 @@ dependencies {
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.paging.common.android)
     implementation("com.squareup.retrofit2:converter-gson:2.6.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.5.0")
 
     //Hilt
-    implementation("com.google.dagger:hilt-android:2.44")
-    implementation("com.google.dagger:hilt-compiler:2.44")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation("com.google.dagger:hilt-android:2.50")
+    kapt("com.google.dagger:hilt-compiler:2.50")
+//    implementation("com.google.dagger:hilt-compiler:2.44")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0-alpha03")
+//    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+
 
     //paging
-    implementation("androidx.paging:paging-compose:1.0.0-alpha14")
+//    implementation("androidx.paging:paging-compose:1.0.0-alpha14")
     implementation("androidx.fragment:fragment-ktx:1.5.5")
     implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:11.0.1")
+
+    //lottie
+
+    implementation("com.airbnb.android:lottie-compose:5.2.0")
+    implementation(libs.androidx.paging.compose.android)
+
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.17.0")
+    implementation("androidx.navigation:navigation-compose:2.5.2")
+    implementation("androidx.core:core-splashscreen:1.0.0")
 
 
 

@@ -9,6 +9,7 @@ import javax.inject.Inject
 import androidx.paging.PagingData
 import com.example.movie_feed.data.MovieItem
 import com.example.movie_feed.model.Constants
+import com.example.movie_feed.model.UseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 @HiltViewModel

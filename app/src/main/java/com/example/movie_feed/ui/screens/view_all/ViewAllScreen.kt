@@ -68,8 +68,8 @@ fun ViewAllScreen(
 fun selectList(moviesType: String, viewModel: ViewAllViewModel): LazyPagingItems<MovieItem> {
     return when (moviesType) {
         MovieTypes.POPULAR.value -> viewModel.popularMoviesPagingItems.collectAsLazyPagingItems()
-        //TODO
-        //other movie types
+        MovieTypes.NOW_PLAYING.value -> viewModel.nowPlayingMoviesPagingItems.collectAsLazyPagingItems()
+        MovieTypes.UPCOMING.value -> viewModel.upcomingMoviesPagingItems.collectAsLazyPagingItems()
         else -> {
             viewModel.topRatedMoviesPagingItems.collectAsLazyPagingItems()
         }

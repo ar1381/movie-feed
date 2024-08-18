@@ -13,11 +13,11 @@ import com.example.movie_feed.model.use_case.TopRatedMoviesPagingList
 import com.example.movie_feed.model.use_case.UpcomingMoviesList
 import com.example.movie_feed.model.use_case.UpcomingMoviesPagingList
 
-class UseCases (
-    val topRatedMoviesPagingList: TopRatedMoviesPagingList,
-    val popularMoviesPagingList: PopularMoviesPagingList,
-    val nowPlayingMoviesPagingList: NowPlayingMoviesPagingList,
-    val upcomingMoviesPagingList: UpcomingMoviesPagingList,
+class UseCases(
+    val topRatedMoviesPagingList: PopularMoviesPagingList,
+    val popularMoviesPagingList: NowPlayingMoviesPagingList,
+    val nowPlayingMoviesPagingList: UpcomingMoviesPagingList,
+    val upcomingMoviesPagingList: TopRatedMoviesPagingList,
 
     //no page
     val popularMoviesList: PopularMoviesList,

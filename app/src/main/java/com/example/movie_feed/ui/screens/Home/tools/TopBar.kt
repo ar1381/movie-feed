@@ -19,10 +19,10 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.ui.draw.clip
 
 @Composable
 fun TopBar(navController: NavController, visibilty: Boolean?) {
@@ -33,12 +33,12 @@ fun TopBar(navController: NavController, visibilty: Boolean?) {
                     .data("https://image.tmdb.org/t/p/original/nU5NrhR5VUedB0UIcKdDpOkTnna.jpg")
                     .crossfade(true)
                     .build(),
-                contentDescription = stringResource(R.string.description),
+                contentDescription = stringResource(com.example.movie_feed.R.string.description),
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(300.dp)
-//                            .clip(shape = RoundedCornerShape(10.dp))
+                            .clip(shape = RoundedCornerShape(10.dp))
             )
             Column(modifier = Modifier.padding(horizontal = 15.dp)) {
                 Text(

@@ -1,6 +1,13 @@
 package com.example.movie_feed.data
 
 import androidx.paging.PagingData
+import com.example.movie_feed.model.responce.NowPlayingMovieResponse
+import com.example.movie_feed.model.responce.PopularMovieResponse
+import com.example.movie_feed.model.responce.UpcomingMovieResponse
+import com.example.movie_feed.model.use_case.GetVideosResponse
+import com.example.movie_feed.model.use_case.MovieCreditsResponse
+import com.example.movie_feed.model.use_case.MovieDetailsResponse
+import com.example.movie_feed.model.use_case.SearchMovieResponse
 import com.example.movie_feed.network.NetworkResult
 import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
