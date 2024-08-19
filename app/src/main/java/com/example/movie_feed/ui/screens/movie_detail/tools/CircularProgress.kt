@@ -26,11 +26,11 @@ fun CircularProgress(progressValue: Float) {
             .width(50.dp)
             .height(50.dp)
             .clip(shape = CircleShape)
-            .background(color = Color.Black)
+            .background(color = Color.Gray)
     ) {
         CircularProgressIndicator(
             progress = progressValue,
-            color = Color.Yellow,
+            color = Color.Green,
             modifier = Modifier
                 .align(Alignment.Center)
                 .height(38.dp)

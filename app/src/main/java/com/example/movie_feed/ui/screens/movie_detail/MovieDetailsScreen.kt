@@ -211,7 +211,7 @@ fun ItemTitle( navController: NavController,response: MovieDetailsResponse, vide
                 modifier = Modifier.size(18.dp)
             )
             Text(
-                text = "Play Trailer",
+                text = "Movie Trailer",
                 style = MaterialTheme.typography.body1,
                 maxLines = 1,
                 modifier = Modifier.padding(end = 10.dp)
