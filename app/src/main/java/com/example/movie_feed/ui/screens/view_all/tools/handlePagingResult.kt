@@ -19,10 +19,10 @@ fun handlePagingResult(
 
         return when {
             loadState.refresh is LoadState.Loading -> {
-//                IsLoading(isLoading = true)
+                IsLoading(isLoading = true)
             }
             error != null -> {
-//                ErrorView(true)
+                ErrorView(true)
             }
             movieItems.itemCount < 1 -> {
 

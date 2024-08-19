@@ -19,7 +19,6 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.Dashboard.route) {
 
-        // Dashboard Screen
         composable(route = Screen.Dashboard.route) {
             HomeScreen(navController = navController)
         }
