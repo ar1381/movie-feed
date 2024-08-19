@@ -30,7 +30,7 @@ fun TopBar(navController: NavController, visibilty: Boolean?) {
         Box(contentAlignment = Alignment.CenterStart) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data("https://image.tmdb.org/t/p/original/nU5NrhR5VUedB0UIcKdDpOkTnna.jpg")
+                    .data("https://image.tmdb.org/t/p/original/fR2TWD9dj8rQOUCkMl22xwuOHdd.jpg")
                     .crossfade(true)
                     .build(),
                 contentDescription = stringResource(com.example.movie_feed.R.string.description),
@@ -42,18 +42,19 @@ fun TopBar(navController: NavController, visibilty: Boolean?) {
             )
             Column(modifier = Modifier.padding(horizontal = 15.dp)) {
                 Text(
-                    text = "Welcome",
+                    text = "Movie Feed",
                     style = MaterialTheme.typography.h4,
                     color = Color.White,
                     modifier = Modifier.padding(horizontal = 10.dp)
                 )
                 Text(
-                    text = "Millions of movies, TV shows and people to discover. Explore now.",
+                    text = "many movies for you to discover.",
                     style = MaterialTheme.typography.body1,
                     color = Color.White,
                     modifier = Modifier.padding(horizontal = 10.dp)
                 )
                 Spacer(modifier = Modifier.height(20.dp))
+                SearchBar(navController)
             }
         }
 

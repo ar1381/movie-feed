@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.movie_feed.ui.screens.Home.HomeScreen
 import com.example.movie_feed.ui.screens.movie_detail.MovieDetailsScreen
+import com.example.movie_feed.ui.screens.search.SearchPageScreen
 import com.example.movie_feed.ui.screens.view_all.ViewAllScreen
 
 @ExperimentalAnimationApi
@@ -54,15 +55,12 @@ fun Navigation() {
             val movieId = it.arguments?.getString("movieId") ?: ""
             MovieDetailsScreen(navController = navController, moviesTitle)
         }
-
-        // TODO
-
 //         Search Page Screen
-//        composable(
-//            route = Screen.SearchPageScreen.route
-//        ) {
-//            SearchPageScreen(navController = navController)
-//        }
+        composable(
+            route = Screen.SearchPageScreen.route
+        ) {
+            SearchPageScreen(navController = navController)
+        }
 
 
     }
