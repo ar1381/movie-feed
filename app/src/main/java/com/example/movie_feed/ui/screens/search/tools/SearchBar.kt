@@ -49,7 +49,7 @@ fun SearchBar(onCancel: () -> Unit,onSearch: (state:MutableState<TextFieldValue>
                 IconButton(
                     onClick = {
                         state.value =
-                            TextFieldValue("") // Remove text from TextField when you press the 'X' icon
+                            TextFieldValue("")
                         onCancel()
                     }
                 ) {
@@ -64,7 +64,7 @@ fun SearchBar(onCancel: () -> Unit,onSearch: (state:MutableState<TextFieldValue>
             }
         },
         singleLine = true,
-        shape = RoundedCornerShape(30.dp), // The TextFiled has rounded corners top left and right by default
+        shape = RoundedCornerShape(30.dp),
         colors = TextFieldDefaults.textFieldColors(
             textColor = Color.Black,
             cursorColor = Color.Black,
