@@ -32,7 +32,8 @@ Coil: For fast and efficient image loading (used for movie posters and cast phot
    </tr> 
    <tr> 
       <td>
-         <img src = "ScreenShots\Screenshot_20241008_192924_Movie-feed.jpg" width=240/></td>
+         <img src = "ScreenShots\Screenshot_20241008_192924_Movie-feed.jpg" width=240/>
+      </td>
       <td>
          <img src = "ScreenShots\Screenshot_20241008_192935_Movie-feed.jpg" width=240/>
       </td> 
@@ -40,7 +41,7 @@ Coil: For fast and efficient image loading (used for movie posters and cast phot
          <img src = "ScreenShots\Screenshot_20241008_193008_Movie-feed.jpg" width=240/>
       </td> 
          <img src = "ScreenShots\Screenshot_20241008_193029_Movie-feed.jpg" width=240/>
-      </td> 
+      <td> 
          <img src = "ScreenShots\Screenshot_20241008_193046_Movie-feed.jpg" width=240/>
       </td> 
    </tr> 
