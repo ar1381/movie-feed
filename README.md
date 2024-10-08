@@ -22,7 +22,29 @@ Retrofit: For making network requests to the TMDb API.
 Coroutines & Flow: Manage background operations and state efficiently.
 Coil: For fast and efficient image loading (used for movie posters and cast photos).
 ## 🎥 Screenshots
-<table style="width:100%"> <tr> <th>Movie List</th> <th>Movie Details</th> <th>Cast Information</th> </tr> <tr> <td><img src = "ScreenShots/movie_list.jpg" width=240/></td> <td><img src = "ScreenShots/movie_detail.jpg" width=240/></td> <td><img src = "ScreenShots/movie_cast.jpg" width=240/></td> </tr> </table>
+<table style="width:100%">
+   <tr> 
+      <th>homescreen</th> 
+      <th>Movie List</th> 
+      <th>Movie Details</th> 
+      <th>Cast Information</th> 
+      <th>search</th> 
+   </tr> 
+   <tr> 
+      <td>
+         <img src = "ScreenShots\Screenshot_20241008_192924_Movie-feed.jpg" width=240/></td>
+      <td>
+         <img src = "ScreenShots\Screenshot_20241008_192935_Movie-feed.jpg" width=240/>
+      </td> 
+      <td>
+         <img src = "ScreenShots\Screenshot_20241008_193008_Movie-feed.jpg" width=240/>
+      </td> 
+         <img src = "ScreenShots\Screenshot_20241008_193029_Movie-feed.jpg" width=240/>
+      </td> 
+         <img src = "ScreenShots\Screenshot_20241008_193046_Movie-feed.jpg" width=240/>
+      </td> 
+   </tr> 
+</table>
 📝 Getting Started
 To get a local copy of the project up and running, follow these steps:
 
